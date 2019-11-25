@@ -2,9 +2,15 @@ package com.tjoeun.a201911_kotlinfinaltest
 
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_lotto.*
 
 class LottoActivity : BaseActivity() {
+
+//     누적 사용금액
+    var usedMoney = 0L
+//    누적 당첨금액
+    var luckyMoney = 0L
 
     var lottoNumArrayList = ArrayList<Int>()
     var thisWeekLottoNumTextViewArrayList = ArrayList<TextView>()
@@ -26,18 +32,38 @@ class LottoActivity : BaseActivity() {
             setThisWeekLottoNum()
 
             checkLottoRank()
+
+            usedMoney+=1000
+            usedMoneyTxt.text = String.format("사용금액 : %,d원", usedMoney)
         }
     }
 
 //    당첨 결과를 체크 몇등인지 확인
-    fun checkLottoRank() {
-
 //    6개 : 1등 => 20억원
 //    5개 : 3등 => 150 만원
 //    4개 : 4등 => 5만원
 //    3개 : 5등 => 5천원
 //    그 이하 : 꽝 => 0 원
 
+    fun checkLottoRank() {
+        var totalScore = 0
+
+        for (myNum in myNumberArrayList) {
+
+            for (thisWeekNum in lottoNumArrayList) {
+                if (myNum == thisWeekNum) {
+                    totalScore++
+                }
+            }
+        }
+
+        when(totalScore) {
+            6 -> Toast.makeText(mContext, "1등 당첨", Toast.LENGTH_SHORT).show()
+            5 -> Toast.makeText(mContext, "3등 당첨", Toast.LENGTH_SHORT).show()
+            4 -> Toast.makeText(mContext, "4등 당첨", Toast.LENGTH_SHORT).show()
+            3 -> Toast.makeText(mContext, "5등 당첨", Toast.LENGTH_SHORT).show()
+            else -> Toast.makeText(mContext, "꽝", Toast.LENGTH_SHORT).show()
+        }
 
     }
 
