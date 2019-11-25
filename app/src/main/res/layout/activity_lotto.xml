@@ -24,14 +24,14 @@
             android:id="@+id/lottoNumTxt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:text="\?"/>
 
         <TextView
             android:id="@+id/lottoNumTxt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="\?"/>
 
@@ -39,7 +39,7 @@
             android:id="@+id/lottoNumTxt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="\?"/>
 
@@ -47,7 +47,7 @@
             android:id="@+id/lottoNumTxt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="\?"/>
 
@@ -55,7 +55,7 @@
             android:id="@+id/lottoNumTxt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="\?"/>
 
@@ -63,7 +63,22 @@
             android:id="@+id/lottoNumTxt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:text="\?"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginLeft="20dp"
+            android:text="+"/>
+
+        <TextView
+            android:id="@+id/bonusNumTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="\?"/>
 
@@ -86,14 +101,14 @@
             android:id="@+id/myLottoNumTxt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:text="3"/>
 
         <TextView
             android:id="@+id/myLottoNumTxt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="10"/>
 
@@ -101,7 +116,7 @@
             android:id="@+id/myLottoNumTxt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="17"/>
 
@@ -109,7 +124,7 @@
             android:id="@+id/myLottoNumTxt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="20"/>
 
@@ -117,7 +132,7 @@
             android:id="@+id/myLottoNumTxt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="40"/>
 
@@ -125,7 +140,7 @@
             android:id="@+id/myLottoNumTxt6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:layout_marginLeft="20dp"
             android:text="43"/>
 
@@ -160,5 +175,47 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="누적 당첨 금액 : ??원" />
+
+    <TextView
+        android:id="@+id/firstRankCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="1등 횟수 : 0"/>
+
+    <TextView
+        android:id="@+id/secondRankCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="2등 횟수 : 0"/>
+
+    <TextView
+        android:id="@+id/thirdRankCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="3등 횟수 : 0"/>
+
+    <TextView
+        android:id="@+id/fourthRankCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="4등 횟수 : 0"/>
+
+    <TextView
+        android:id="@+id/fifthRankCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="5등 횟수 : 0"/>
+
+    <TextView
+        android:id="@+id/wrongCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="꽝 횟수 : 0"/>
 
 </LinearLayout>
