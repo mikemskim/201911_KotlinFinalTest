@@ -58,13 +58,29 @@ class LottoActivity : BaseActivity() {
         }
 
         when(totalScore) {
-            6 -> Toast.makeText(mContext, "1등 당첨", Toast.LENGTH_SHORT).show()
-            5 -> Toast.makeText(mContext, "3등 당첨", Toast.LENGTH_SHORT).show()
-            4 -> Toast.makeText(mContext, "4등 당첨", Toast.LENGTH_SHORT).show()
-            3 -> Toast.makeText(mContext, "5등 당첨", Toast.LENGTH_SHORT).show()
-            else -> Toast.makeText(mContext, "꽝", Toast.LENGTH_SHORT).show()
+            6 -> {
+//                Toast.makeText(mContext, "1등 당첨", Toast.LENGTH_SHORT).show()
+                luckyMoney += 2000000000
+            }
+            5 -> {
+//                Toast.makeText(mContext, "3등 당첨", Toast.LENGTH_SHORT).show()
+                luckyMoney += 1500000
+            }
+            4 -> {
+//                Toast.makeText(mContext, "4등 당첨", Toast.LENGTH_SHORT).show()
+                luckyMoney += 50000
+            }
+            3 -> {
+//                Toast.makeText(mContext, "5등 당첨", Toast.LENGTH_SHORT).show()
+                luckyMoney += 5000
+            }
+            else -> {
+//                Toast.makeText(mContext, "꽝", Toast.LENGTH_SHORT).show()
+                luckyMoney += 0
+            }
         }
 
+        luckyMoneyTxt.text = String.format("누적 당첨 금액 : %,d원", luckyMoney)
     }
 
     fun setThisWeekLottoNum() {
