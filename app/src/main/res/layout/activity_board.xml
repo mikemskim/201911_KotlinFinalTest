@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".BoardActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/boardTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="#000000"
+        app:tabIndicatorHeight="3dp"
+        app:tabTextColor="#FF0000"
+        app:tabSelectedTextColor="#0000FF"
+        app:tabGravity="center"
+        app:tabMode="scrollable"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/boardViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/boardFrag"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                class="com.tjoeun.a201911_kotlinfinaltest.fragments.BoardFragment"/>
+
+            <fragment
+                android:id="@+id/noticeFrag"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                class="com.tjoeun.a201911_kotlinfinaltest.fragments.NoticeFragment"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

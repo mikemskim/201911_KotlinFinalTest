@@ -1,8 +1,6 @@
 package com.tjoeun.a201911_kotlinfinaltest
 
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -45,7 +43,7 @@ class LoginActivity : BaseActivity() {
                             ContextUtil.setToken(mContext, data.getString("token"))
                             var msg = "${user.getString("name")}님 환영합니다."
                             Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show()
-                            var intent = Intent(mContext, NoticeActivity::class.java)
+                            var intent = Intent(mContext, BoardActivity::class.java)
                             startActivity(intent)
                         } else {
                             var msg = json.getString("message")
