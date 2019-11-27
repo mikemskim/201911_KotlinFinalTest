@@ -34,7 +34,7 @@ class NoticeAdapter(context:Context, res:Int, list: ArrayList<NoticeData>) : Arr
 
         titleTxt.text = noticeData.title
         contentTxt.text = noticeData.content
-        createdAtTxt.text = noticeData.created_at
+        createdAtTxt.text = noticeData.getFormattedCreatedAt()
 
         return row
     }

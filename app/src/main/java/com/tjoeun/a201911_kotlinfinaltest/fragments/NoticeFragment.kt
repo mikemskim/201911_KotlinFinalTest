@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.tjoeun.a201911_kotlinfinaltest.R
 import com.tjoeun.a201911_kotlinfinaltest.adapters.NoticeAdapter
 import com.tjoeun.a201911_kotlinfinaltest.datas.NoticeData
@@ -13,7 +12,7 @@ import com.tjoeun.a201911_kotlinfinaltest.utils.ServerUtil
 import kotlinx.android.synthetic.main.notice_fragment.*
 import org.json.JSONObject
 
-class NoticeFragment: Fragment() {
+class NoticeFragment: BaseFragment() {
 
     var noticeList = ArrayList<NoticeData>()
 
@@ -30,6 +29,15 @@ class NoticeFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        setupEvents()
+        setValues()
+
+    }
+
+    override fun setupEvents() {
+    }
+
+    override fun setValues() {
         noticeAdapter = NoticeAdapter(requireContext(), noticeList)
         noticeListView.adapter = noticeAdapter
 
@@ -43,7 +51,7 @@ class NoticeFragment: Fragment() {
 
                     for (i in 0..(notices.length()-1)) {
                         var notice = notices.getJSONObject(i)
-                        noticeList.add(NoticeData(notice.getInt("id"), notice.getString("title"), notice.getString("content"), notice.getString("created_at")))
+                        noticeList.add(NoticeData.getNoticeDataFromJson(notice))
                     }
 
                     noticeAdapter?.notifyDataSetChanged()

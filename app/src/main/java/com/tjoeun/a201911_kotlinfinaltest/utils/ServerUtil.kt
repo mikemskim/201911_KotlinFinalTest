@@ -79,5 +79,35 @@ class ServerUtil {
                 }
             })
         }
+
+        fun getRequestBlackList(
+            context: Context,
+            handler: jsonResponseHandler?
+        ) {
+
+            var client = OkHttpClient()
+
+            var urlBuilder = HttpUrl.parse("${BASE_URL}/black_list")!!.newBuilder()
+
+            val requestUrl = urlBuilder.build().toString()
+
+            Log.d("요청URL", requestUrl)
+
+            val request = Request.Builder().url(requestUrl).header("X-Http-Token", ContextUtil.getToken(context)).build()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Log.d("서버통신에러", e.localizedMessage)
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    var body = response.body()!!.string()
+//                    Log.d("서버", body)
+                    var json = JSONObject(body)
+
+                    handler?.onResponse(json)
+                }
+            })
+        }
     }
 }
