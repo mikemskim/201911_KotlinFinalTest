@@ -109,5 +109,34 @@ class ServerUtil {
                 }
             })
         }
+
+        fun postRequestBlackList(
+            context: Context,
+            title: String,
+            content: String,
+            handler: jsonResponseHandler?
+        ) {
+
+            var client = OkHttpClient()
+
+            var url = "${BASE_URL}/black_list"
+
+            var formBody = FormBody.Builder().add("title", title).add("content", content).build()
+
+            var request = Request.Builder().url(url).header("X-Http-Token",ContextUtil.getToken(context)).post(formBody).build()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Log.d("서버통신에러", e.localizedMessage)
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    var body = response.body()!!.string()
+                    var json = JSONObject(body)
+
+                    handler?.onResponse(json)
+                }
+            })
+        }
     }
 }
